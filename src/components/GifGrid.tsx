@@ -1,7 +1,12 @@
+import React from "react";
 import useFetchGifs from "../hooks/useFetchGifs";
 import GifItem from "./GifItem";
 
-const GifGrid = ({ category }) => {
+interface Props {
+  category: string;
+}
+
+const GifGrid = ({ category }: Props) => {
   const { images, isLoading } = useFetchGifs(category);
   return (
     <>

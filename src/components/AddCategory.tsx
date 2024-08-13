@@ -1,9 +1,14 @@
+import React from "react";
 import { useState } from "react";
 
-const AddCategory = ({ onNewCategory }) => {
+interface Props {
+  onNewCategory: (newCategory: string) => void;
+}
+
+const AddCategory = ({ onNewCategory }: Props) => {
   const [inputValue, setInputValue] = useState("");
 
-  const onInpuntChange = ({ target }) => {
+  const onInputChange = ({ target }) => {
     setInputValue(target.value);
   };
 
@@ -18,12 +23,12 @@ const AddCategory = ({ onNewCategory }) => {
   };
 
   return (
-    <form onSubmit={(event) => onSubmit(event)}>
+    <form onSubmit={(event) => onSubmit(event)} aria-label="form">
       <input
         type="text"
         placeholder="Buscar Gifs"
         value={inputValue}
-        onChange={onInpuntChange}
+        onChange={onInputChange}
       />
     </form>
   );
